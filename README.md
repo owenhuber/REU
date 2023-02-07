@@ -1,2 +1,2 @@
-Currently main.py is just simulations of the heat eq on the 1D Taurus, currently trying to clean it up and add pseudo-integration to analyze pdf. 
-Later will add all functions for each problem to their own file and main.py will actually be for running simulations
+- Currently main.py is just simulations of the heat eq on the 1D Taurus, Will eventually hold for 2D heat equation and later diffusion stuff
+- Want to add RK4 next to the 1D heat eq case then move on to 2D
