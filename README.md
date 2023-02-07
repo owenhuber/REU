@@ -1,0 +1,2 @@
+Currently main.py is just simulations of the heat eq on the 1D Taurus, currently trying to clean it up and add pseudo-integration to analyze pdf. 
+Later will add all functions for each problem to their own file and main.py will actually be for running simulations
