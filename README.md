@@ -1,2 +1,2 @@
-- Currently main.py is just simulations of the heat eq on the 1D Taurus, Will eventually hold for 2D heat equation and later diffusion stuff
+- Currently main.py is just simulations of Heat eq on 1D and 2D Taurus, last simulation of 2D taturus may have too much data, wantto make it like a heat map
 - Want to add RK4 next to the 1D heat eq case then move on to 2D
