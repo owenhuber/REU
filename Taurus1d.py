@@ -6,11 +6,11 @@ import math
 
 def Taurus_1d(boundary, x):
     '''places x on 1D Taurus of [- boundary, + boundary]'''
-    if x < - boundary : 
-        return boundary - x % (2*boundary)
-    if x > boundary : 
-        return x % (2*boundary) - boundary
-    return x 
+    # if x <= - boundary : 
+    #     return boundary - x % (2*boundary)
+    # if x >= boundary : 
+    #     return x % (2*boundary) - boundary
+    return ((x + boundary) % 2*boundary) - boundary 
 
 
 # For Simulating the heat equation on 1D Taurus
@@ -73,8 +73,8 @@ def plot_1d(arr, val, **kwargs):
     plt.plot(arr, np.zeros_like(arr) + val, '.', **kwargs)
     plt.show()
 
-def hist1d(lis, binSize):
-    bins = np.arange(-1, 1, binSize) # fixed bin size
+def hist1d(lis, binSize, bound):
+    bins = np.arange(-bound, bound, binSize) # fixed bin size
     plt.xlim([min(lis)-1, max(lis)+1])
     plt.hist(lis, bins=bins, alpha=0.5)
     plt.title('distribution after T')
