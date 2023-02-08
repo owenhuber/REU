@@ -26,13 +26,29 @@ def x_T2(T, dt, nu, x0, bound):
         xn = Taurus_2d(bound, xn)
     return xn
 
+def x_T2v(T, dt, nu, x0, bound):
+    '''for a single particle x0, with nu in taurus defined by the bound, finds position of x0 at time T with timesteps deltaT'''
+    xn = x0
+    for i in range(int(T/ dt)):
+        # before converting to taurus (each step)
+        not_Taurus1 = np.sqrt(2*nu*dt)*np.random.normal(0,1) + dt*math.sin(xn[1]* np.pi)
+        not_Taurus2 = np.sqrt(2*nu*dt)*np.random.normal(0,1) 
+        temp = Taurus_2d(bound, [not_Taurus1, not_Taurus2])
+        xn[0] += temp[0]
+        xn[1] += temp[1]
+        xn = Taurus_2d(bound, xn)
+    return xn
+
 
 def u_xt2(T, dt, nu, dirac, bound):
     '''probability distribution of u given initial distribution dirac at time T'''
     record = []
     for val in dirac:
         x0 = val
-        record.append(x_T2(T, dt, nu, x0, bound))
+        # uncomment below for just heat eq 
+        # record.append(x_T2(T, dt, nu, x0, bound))
+        # uncomment below for the heat diffusion eq
+        record.append(x_T2v(T, dt, nu, x0, bound))
     return record
 
 
