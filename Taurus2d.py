@@ -65,6 +65,7 @@ def plot_2d(arr):
 
 
 def hist2d(lis, binSize):
+    '''still working on'''
     bins = np.arange(-1, 1, binSize) # fixed bin size
     plt.xlim([min(lis)-1, max(lis)+1])
     plt.hist(lis, bins=bins, alpha=0.5)

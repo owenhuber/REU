@@ -44,5 +44,68 @@ vals_2d = u_xt2(100, 1, 0.00001, dirac2, 1)
 
 
 # Plotting our findings in 2D
+
 plot_2d(vals_2d)
 
+
+
+# for plotting 3d concentration map ()
+dic = {}
+
+for i in range(200):
+    for j in range(200):
+        if i == 100 and j == 100: 
+            dic[('%.2f' % 0) + ('%.2f' % 0)] = 0
+        elif i == 100: 
+            dic[('%.2f' % 0) + ('%.2f' % ((-100 + j)/100))] = 0
+        elif j == 100: 
+            dic[('%.2f' % ((-100 + i)/100)) + ('%.2f' % 0)] = 0
+        else : 
+            dic[('%.2f' % ((-100 + i)/100)) + ('%.2f' % ((-100 + j)/100 ))] = 0
+
+for val in vals_2d : 
+    n = val[0]
+    m = val[1]
+    if round(n, 2) == 0 :
+        n = '%.2f' % 0
+    else : 
+        n = '%.2f' % val[0]
+    if round(m, 2) == 0:
+        m = '%.2f' % 0
+    else : 
+        m = '%.2f' % val[1]
+    try :    
+        dic[n + m] += 1
+    except : 
+        print(f'{n + m}')
+
+
+# grouping by weights of bins
+weights = []
+#index
+k = 0
+
+# getting our concentrations
+for i in range(200):
+    for j in range(200):
+        weights.append([(-100 + i)/100, (-100 + j)/100, list(dic.values())[k]])
+        k += 1
+
+
+x, y, dz = zip(*weights)
+plt.rcParams["figure.figsize"] = [7.50, 3.50]
+plt.rcParams["figure.autolayout"] = True
+
+fig = plt.figure()
+
+ax1 = fig.add_subplot(111, projection='3d')
+
+dx = np.ones(40000)/100
+dy = np.ones(40000)/100
+z = np.zeros(40000)
+
+ax1.bar3d(x, y, z, dx, dy, dz, color="red")
+ax1.axis('off')
+plt.show()
+
+plt.show()
