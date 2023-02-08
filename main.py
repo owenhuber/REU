@@ -5,7 +5,6 @@ from Taurus1d import *
 from Taurus2d import *
 from math import log
 import random
-import imageio
 
 
 ##########################################################################################################################################
