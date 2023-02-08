@@ -38,21 +38,16 @@ def u_xt2(T, dt, nu, dirac, bound):
 
 # for integrating
 
-def prob(a, b, lis) : 
-    '''approximate of probability that a random value of the list 'lis' is between a and b'''
-    c = min(a, b)
-    d = max(a, b)
-    i = 0
-    lis.sort()
-    # the count we wish to return
+def prob2d(a, b, c, d, lis):
     ret = 0
-    s = len(lis)
-    while i < s and a > lis[i] : 
-        i+= 1
-    while i < s and lis[i] <= b:
-        i += 1
-        ret += 1
-    return ret/s
+    k = 0
+    for i in range(200):
+        for j in range(200):
+            if (a <= (i -100)/ 100 <= b ) and (c <= (j -100)/ 100 <= d):
+                ret += lis[k][2]
+            k += 1
+    return ret/ 10000
+        
 
 
 # Functions for plotting in 1D

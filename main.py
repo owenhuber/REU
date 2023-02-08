@@ -23,11 +23,11 @@ vals_1d = u_xt1(100, 1, .01, dirac1, 1)
 # plotting our findings in 1D
 
 hist1d(vals_1d, 0.005)
-plot_1d(vals_1d, 0)
+# plot_1d(vals_1d, 0)
 
 # For our example list, percentage of trajectories ending up in x>0
 
-print(prob(0, 1, vals_1d))
+# print(prob1d(0, 1, vals_1d))
 
 
 #########################################################################################################################################
@@ -92,20 +92,28 @@ for i in range(200):
         k += 1
 
 
-x, y, dz = zip(*weights)
-plt.rcParams["figure.figsize"] = [7.50, 3.50]
-plt.rcParams["figure.autolayout"] = True
+def Heat_3d(lis):
+    x, y, dz = zip(*weights)
+    plt.rcParams["figure.figsize"] = [7.50, 3.50]
+    plt.rcParams["figure.autolayout"] = True
 
-fig = plt.figure()
+    fig = plt.figure()
 
-ax1 = fig.add_subplot(111, projection='3d')
+    ax1 = fig.add_subplot(111, projection='3d')
 
-dx = np.ones(40000)/100
-dy = np.ones(40000)/100
-z = np.zeros(40000)
+    dx = np.ones(40000)/100
+    dy = np.ones(40000)/100
+    z = np.zeros(40000)
 
-ax1.bar3d(x, y, z, dx, dy, dz, color="red")
-ax1.axis('off')
-plt.show()
+    ax1.bar3d(x, y, z, dx, dy, dz, color="red")
+    ax1.axis('off')
+    plt.show()
 
-plt.show()
+    plt.show()
+
+
+
+# print(weights)
+# Heat_3d(weights)
+
+print(prob2d(-0.05, 0.05, -0.05, 0.05, weights))

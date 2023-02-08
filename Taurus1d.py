@@ -49,7 +49,7 @@ def u_xt1(T, dt, nu, dirac, bound):
 
 # for integrating
 
-def prob(a, b, lis) : 
+def prob1d(a, b, lis) : 
     '''approximate of probability that a random value of the list 'lis' is between a and b'''
     c = min(a, b)
     d = max(a, b)
@@ -77,7 +77,7 @@ def hist1d(lis, binSize):
     bins = np.arange(-1, 1, binSize) # fixed bin size
     plt.xlim([min(lis)-1, max(lis)+1])
     plt.hist(lis, bins=bins, alpha=0.5)
-    plt.title('dostribution after T')
+    plt.title('distribution after T')
     plt.xlabel('x')
-    plt.ylabel('probability * 100')
+    plt.ylabel('Relative Prob')
     plt.show()
