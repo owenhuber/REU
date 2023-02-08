@@ -1,2 +1,5 @@
-- Currently main.py is just simulations of Heat eq on 1D and 2D Taurus, last simulation of 2D taturus may have too much data, wantto make it like a heat map
-- Want to add RK4 next to the 1D heat eq case then move on to 2D
+- running main.py will show the distribution of particles as is given the advection diffusion eq with v = (sin(pi*y), 0), over the time interval [0, 1] with timesteps of dt = 1/10. 
+- This is set to be on the Taurus [-1, 1] X [-1, 1] with nu as 0.000001, but this is all interchangable. 
+- In the future want to make a heat map with colors that changes over time by particle concetration
+- Also want to run tests for different nu 
+- Uncommenting sections will show different visuals and allow to manipulate results
